@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragmentNotes"
+    tools:context="com.example.itk19.fragments.NotesFragment">
+
+
+    <ImageView
+        android:id="@+id/file_browse"
+        android:layout_width="164dp"
+        android:layout_height="132dp"
+        android:src="@drawable/ic_notes_folder"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121" />
+
+    <Button
+        android:id="@+id/file_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/file_semester"
+        android:text="upload"/>
+
+    <EditText
+        android:id="@+id/file_subject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="178dp"
+        android:ems="10"
+        android:hint="File Subject"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/image_upload"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/file_browse"
+        app:layout_constraintVertical_bias="0.093" />
+    <EditText
+        android:id="@+id/file_semester"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="178dp"
+        android:ems="10"
+        android:hint="File Semster"
+        android:textColor="@color/purple_200"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/file_subject"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/file_subject"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <ImageView
+        android:id="@+id/filelogo"
+        android:layout_width="152dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/file_subject"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.768"
+        app:srcCompat="@drawable/ic_file_logo" />
+
+    <ImageView
+        android:id="@+id/cancel_file"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/filelogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_cancel_pdf" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
