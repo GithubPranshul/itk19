@@ -7,7 +7,15 @@
     android:id="@+id/fragmentNotes"
     tools:context="com.example.itk19.fragments.NotesFragment">
 
-
+<ProgressBar
+    app:layout_constraintTop_toBottomOf="@id/file_semester"
+    app:layout_constraintBottom_toTopOf="@id/file_upload"
+    android:id="@+id/determinateBar"
+    style="@android:style/Widget.ProgressBar.Horizontal"
+    android:progressBackgroundTint="@color/purple_200"
+    android:progressTint="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="8dp"/>
     <ImageView
         android:id="@+id/file_browse"
         android:layout_width="164dp"
@@ -42,7 +50,7 @@
         android:textColor="@color/purple_200"
         android:textSize="25sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/image_upload"
+        app:layout_constraintBottom_toTopOf="@+id/file_upload"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
