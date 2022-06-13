@@ -12,6 +12,7 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Color
 import android.net.Uri
+import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -23,6 +24,8 @@ import androidx.fragment.app.Fragment
 import com.example.itk19.R
 import com.example.itk19.models.FileInfoModel
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
@@ -34,6 +37,10 @@ import com.karumi.dexter.listener.single.PermissionListener
 
 class NotesFragment : Fragment() {
 
+    companion object{
+        val TAG = "101"
+    }
+
     private lateinit var fileBrowse: ImageView
     private lateinit var fileLogo: ImageView
     private lateinit var cancelFile: ImageView
@@ -44,7 +51,7 @@ class NotesFragment : Fragment() {
 
     private val storageReference = FirebaseStorage.getInstance().reference
     private val databaseReference = FirebaseDatabase.getInstance().getReference("documents")
-
+    private val db = Firebase.firestore
     private lateinit var filePath: Uri
 
     override fun onCreateView(
@@ -145,9 +152,12 @@ class NotesFragment : Fragment() {
             storageRef.putFile(filePath)
                 .addOnSuccessListener {
                     storageRef.downloadUrl.addOnSuccessListener {
-                        val obj = FileInfoModel(fileSemester.text.toString(),fileSubject.text.toString(),filePath.toString())
-                        databaseReference.push().key?.let { it1 -> databaseReference.child(it1).setValue(obj) }
+                        val obj = FileInfoModel(fileSemester.text.toString(),fileSubject.text.toString(),it.toString())
+                       // databaseReference.push().key?.let { it1 -> databaseReference.child(it1).setValue(obj) }
 
+                        db.collection("documents").add(obj)
+                            .addOnSuccessListener { Log.d(TAG,"Added") }
+                           .addOnFailureListener { e->Log.w(TAG,"Error writing document",e) }
                         progressBar.visibility = View.INVISIBLE
 //                        pd.dismiss()
                         Toast.makeText(context?.applicationContext,"File Uploaded",Toast.LENGTH_LONG).show()
