@@ -20,14 +20,15 @@
                android:layout_width="0dp"
                 android:layout_height="match_parent"
                android:layout_weight="2">
+
                <TextView
+                   android:id="@+id/textGrid"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:layout_centerInParent="true"
-                   android:text="@string/grid_layout"
-                   android:textColor="@color/white"
-                   android:textSize="34sp"
-                   android:id="@+id/textGrid"/>
+                   android:hint="@string/grid_layout"
+                   android:textColorHint="@color/white"
+                   android:textSize="34sp" />
            </RelativeLayout>
        </LinearLayout>
 
